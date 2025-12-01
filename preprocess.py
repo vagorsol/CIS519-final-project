@@ -4,6 +4,9 @@ import pandas as pd
 import requests
 from bs4 import BeautifulSoup
 
+def prepare_data(csv_path):
+  return batch, target
+
 def from_url(url):
   '''
     Given a URL, reads and normalizes the title of the associated article
