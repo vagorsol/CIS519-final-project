@@ -53,7 +53,7 @@ def from_url(url: str):
   # if source is nbc, chop off identifier(?) at its end
   if news_source == 1:
     title = title[:-1]
-  title = " ".join(title)
+  title = " ".join(title).lower()
 
   return title, news_source
 
