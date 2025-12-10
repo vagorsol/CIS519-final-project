@@ -3,7 +3,7 @@ import pandas as pd
 
 def prepare_data(csv_path: str):
   '''
-  given a csv file path, returns a list of news titles and their corresponding source
+  Given a csv file path, returns a list of news titles and their corresponding source
   Parameters:
   -----------
     csv_path: path of csv to read
