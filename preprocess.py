@@ -1,6 +1,8 @@
 import numpy as np
 import pandas as pd
 
+DET = ["the", "a", "an"]
+
 def prepare_data(csv_path: str):
   '''
   Given a csv file path, returns a list of news titles and their corresponding source
@@ -50,6 +52,12 @@ def from_url(url: str):
 
   # get the article title
   title = url.split("/")[-1].split("-") 
+
+  # remove articles
+  for word in title:
+    if word in DET:
+      title.remove(word)
+
   # if source is nbc, chop off identifier(?) at its end
   if news_source == 1:
     title = title[:-1]
@@ -57,7 +65,7 @@ def from_url(url: str):
 
   return title, news_source
 
-X, y = prepare_data("url_only_data.csv") #"url_subset.csv")
+X, y = prepare_data("url_subset.csv")#("url_only_data.csv") #"url_subset.csv")
 
 print(X)
 print(y)
