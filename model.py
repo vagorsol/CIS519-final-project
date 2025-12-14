@@ -8,10 +8,8 @@ from sklearn.feature_extraction.text import TfidfVectorizer
 
 class NewsClassifier(nn.Module):
     def _init(self):
-        super()._init_(NewsClassifier, self)    
-
-    def forward(self, X):
-        return X
+        super(NewsClassifier, self)._init_() 
+        self.lr = LogisticRegression(C=0.01, tol=0.0001, max_iter=1000)
 
     def fit(self, X, y):
         X_train, X_test, y_train, y_test = train_test_split(X, y, random_state=40, test_size=0.2, shuffle=True)
@@ -23,7 +21,7 @@ class NewsClassifier(nn.Module):
         return None
     
     def predict(self, batch):
-        y_predict = batch # do something with batch here
+        y_predict = self.lr(batch)
         return y_predict
 
 def get_model():
